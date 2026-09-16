@@ -9,16 +9,17 @@ cask "netproxy" do
 
   app "NetProxy.app"
 
-  # Manual activation step is required after install (NE system extension):
-  #   /Applications/NetProxy.app/Contents/MacOS/NetProxy activate
-  # then approve in System Settings > Privacy & Security.
-  post_install do
-    puts <<~EOS
-      ➜ Next step (one time): activate the system extension
-          /Applications/NetProxy.app/Contents/MacOS/NetProxy activate
-        then approve it in System Settings → Privacy & Security.
-    EOS
-  end
+  # NE system extension: activation is a manual, one-time step (requires
+  # admin approval in System Settings — cannot be automated by brew).
+  caveats <<~EOS
+    One-time activation is required after install:
+
+      /Applications/NetProxy.app/Contents/MacOS/NetProxy activate
+
+    Then approve the extension in System Settings → Privacy & Security.
+    If a previous (non-notarized) build was installed, uninstall it first
+    (NetProxy uninstall) and reboot before installing this one.
+  EOS
 
   uninstall delete: [
     "/Library/SystemExtensions/Library/SystemExtensions/db.plist",

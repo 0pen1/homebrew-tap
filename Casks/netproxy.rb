@@ -11,8 +11,6 @@ cask "netproxy" do
 
   app "NetProxy.app"
 
-  uninstall delete: "/Library/SystemExtensions/Library/SystemExtensions/db.plist"
-
   zap trash: "~/Library/Preferences/local.netproxy.3w73w8c23l.plist"
 
   # NE system extension: activation is a manual, one-time step (requires

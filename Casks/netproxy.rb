@@ -1,6 +1,6 @@
 cask "netproxy" do
-  version "3.3"
-  sha256 "bed9afda607f18c0fac39c0c1b5f83e9726802469c1b65a8146a4099d78c78b7"
+  version "3.6"
+  sha256 "e1bbd2b9be6604661d589d415ae5819c0ed3fcfabe83aab6e78f7c744a13ff66"
 
   url "https://github.com/0pen1/clarity-proxy/releases/download/v#{version}/NetProxy-v#{version}.zip"
   name "clarity-proxy"

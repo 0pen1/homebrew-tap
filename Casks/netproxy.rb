@@ -16,11 +16,11 @@ cask "netproxy" do
   # NE system extension: activation is a manual, one-time step (requires
   # admin approval in System Settings — cannot be automated by brew).
   caveats <<~EOS
-    One-time activation is required after install:
+    One-time activation (v3.8+): open NetProxy.app, click "激活系统扩展"
+    in the onboarding banner, then approve in System Settings → Privacy
+    & Security. CLI alternative:
+    /Applications/NetProxy.app/Contents/MacOS/NetProxy activate
 
-      /Applications/NetProxy.app/Contents/MacOS/NetProxy activate
-
-    Then approve the extension in System Settings → Privacy & Security.
     Quit the menu-bar GUI before upgrading (overwriting a running app
     corrupts the code signature — CLI will then be killed by the kernel).
     If a previous (non-notarized) build was installed, uninstall it first
